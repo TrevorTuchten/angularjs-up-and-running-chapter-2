@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="notesApp" ng-cloak>
+<html lang="en" ng-app="notesApp">
 <head>
     <meta charset="UTF-8">
-    <title>Example 7 - ng-reapeat-Over-An-Object</title>
+    <title>Example 7 - ng-repeat-Over-An-Object</title>
     <style>
         [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
             display: none !important;
@@ -12,32 +12,34 @@
 <body ng-controller="MainCtrl as ctrl">
 
     <div ng-repeat="(author, note) in ctrl.notes">
-        <span class="label">{{note.label}}</span>
+        <span class="label"
+              ng-cloak> {{note.label}}</span>
         <span class="author" ng-bind="author"></span>
     </div>
 
 <script src="bower_components/angular/angular.min.js"></script>
     <script type="text/javascript">
-        angular.module('notesApp', []).controller('MainCtrl', [function () {
-            var self = this;
-            self.notes = {
-                shyam: {
-                    id: 1,
-                    label: 'First Note',
-                    done: false
-                },
-                Misko: {
-                    id: 3,
-                    label: 'Finished Third Note',
-                    done: true
-                },
-                brad: {
-                    id: 2,
-                    label: 'Second Note',
-                    done: false
-                }
-            };
-        }]);
+        angular.module('notesApp', [])
+                .controller('MainCtrl', [function () {
+                    var self = this;
+                    self.notes = {
+                        shyam: {
+                            id: 1,
+                            label: 'First Note',
+                            done: false
+                        },
+                        Misko: {
+                            id: 3,
+                            label: 'Finished Third Note',
+                            done: true
+                        },
+                        brad: {
+                            id: 2,
+                            label: 'Second Note',
+                            done: false
+                        }
+                    };
+                }]);
     </script>
 </body>
 </html>
